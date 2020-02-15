@@ -5,7 +5,19 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [13.x]
+
     steps:
       - uses: actions/checkout@v1
       - name: Build Code
-        run: pwd && whoami && ls
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: |
+          pwd && whoami && ls
+      - run: |
+          make lint
+
+
