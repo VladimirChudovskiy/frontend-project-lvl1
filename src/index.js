@@ -1,4 +1,6 @@
 import readlineSync from 'readline-sync';
+import evenGame from './games/even.js';
+import calcGame from './games/calc.js';
 
 const user = {};
 
@@ -9,33 +11,25 @@ const firstGreeting = () => {
   console.log(`Hello, ${user.name}!`);
 };
 
-const generateRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
-
-const isEven = (number) => number % 2 === 0;
-
-const brainEven = () => {
-  firstGreeting();
-
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-
-  for (let i = 0; i < 3; i += 1) {
-    const number = generateRandom(1, 100);
-    console.log(`Question: ${number}`);
-    const answer = readlineSync.question('Your answer: ');
-    const correctAnswer = (isEven(number)) ? 'yes' : 'no';
-    if (correctAnswer === answer) {
-      console.log('Correct!');
-    } else {
-      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}".!`);
-      console.log(`Let's try again, ${user.name}!`);
-      return;
-    }
-  }
+const onWin = () => {
   console.log(`Congratulations, ${user.name}!`);
 };
 
+const onLose = () => {
+  console.log(`Let's try again, ${user.name}!`);
+};
+
+const play = (gameName) => {
+  firstGreeting();
+  if (gameName === 'evenGame') {
+    evenGame(onWin, onLose, 3);
+  } else if (gameName === 'calcGame') {
+    calcGame(onWin, onLose, 3);
+  }
+};
+
 export {
-  brainEven,
+  play,
 };
 
 export default firstGreeting;
