@@ -5,6 +5,7 @@ import nodGame from './games/nod.js';
 import progressionGame from './games/progression.js';
 import primeGame from './games/prime.js';
 
+const gameRounds = 3;
 const user = {};
 
 const firstGreeting = () => {
@@ -25,15 +26,15 @@ const onLose = () => {
 const play = (gameName) => {
   firstGreeting();
   if (gameName === 'evenGame') {
-    evenGame(onWin, onLose, 3);
+    evenGame(onWin, onLose, gameRounds);
   } else if (gameName === 'calcGame') {
-    calcGame(onWin, onLose, 3);
+    calcGame(onWin, onLose, gameRounds);
   } else if (gameName === 'nodGame') {
-    nodGame(onWin, onLose, 3);
+    nodGame(onWin, onLose, gameRounds);
   } else if (gameName === 'progressionGame') {
-    progressionGame(onWin, onLose, 3);
+    progressionGame(onWin, onLose, gameRounds);
   } else if (gameName === 'primeGame') {
-    primeGame(onWin, onLose, 3);
+    primeGame(onWin, onLose, gameRounds);
   }
 };
 

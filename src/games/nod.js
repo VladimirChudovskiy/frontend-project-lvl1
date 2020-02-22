@@ -1,5 +1,7 @@
 import readlineSync from 'readline-sync';
 
+const minNumber = 1;
+const maxNumber = 100;
 const generateRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
 const biggestDivisor = (num1, num2) => {
@@ -15,8 +17,8 @@ const nodGame = (onWin, onLose, times) => {
   console.log('Find the greatest common divisor of given numbers.');
 
   for (let i = 0; i < times; i += 1) {
-    const number1 = generateRandom(1, 100);
-    const number2 = generateRandom(1, 100);
+    const number1 = generateRandom(minNumber, maxNumber);
+    const number2 = generateRandom(minNumber, maxNumber);
     console.log(`Question: ${number1} ${number2}`);
     const answer = parseInt(readlineSync.question('Your answer: '), 10);
     const correctAnswer = biggestDivisor(number1, number2);

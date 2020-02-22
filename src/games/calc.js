@@ -1,13 +1,18 @@
 import readlineSync from 'readline-sync';
 
+const minNumber = 1;
+const maxNumber = 100;
+const posibilitySignPlus = 40;
+const posibilitySignMinus = 40;
+
 const generateRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
 const generateOperation = () => {
-  const num = Math.floor(Math.random() * (100 - 0) + 0);
-  if (num <= 40) {
+  const num = Math.floor(Math.random() * 100);
+  if (num <= posibilitySignPlus) {
     return '+';
   }
-  if (num > 40 && num < 80) {
+  if (num > posibilitySignPlus && num < posibilitySignPlus + posibilitySignMinus) {
     return '-';
   }
   return '*';
@@ -17,12 +22,12 @@ const calcGame = (onWin, onLose, times) => {
   console.log('What is the result of the expression?');
 
   for (let i = 0; i < times; i += 1) {
-    const number1 = generateRandom(1, 100);
-    const number2 = generateRandom(1, 100);
+    const number1 = generateRandom(minNumber, maxNumber);
+    const number2 = generateRandom(minNumber, maxNumber);
     const operation = generateOperation();
     console.log(`Question: ${number1} ${operation} ${number2}`);
     const answer = parseInt(readlineSync.question('Your answer: '), 10);
-    let correctAnswer = 0;
+    let correctAnswer;
     if (operation === '-') correctAnswer = number1 - number2;
     if (operation === '+') correctAnswer = number1 + number2;
     if (operation === '*') correctAnswer = number1 * number2;
