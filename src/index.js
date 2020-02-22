@@ -2,6 +2,7 @@ import readlineSync from 'readline-sync';
 import evenGame from './games/even.js';
 import calcGame from './games/calc.js';
 import nodGame from './games/nod.js';
+import progressionGame from './games/progression.js';
 
 const user = {};
 
@@ -28,6 +29,8 @@ const play = (gameName) => {
     calcGame(onWin, onLose, 3);
   } else if (gameName === 'nodGame') {
     nodGame(onWin, onLose, 3);
+  } else if (gameName === 'progressionGame') {
+    progressionGame(onWin, onLose, 3);
   }
 };
 
