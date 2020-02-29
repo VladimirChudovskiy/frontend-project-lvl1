@@ -5,8 +5,7 @@
 
 
 ## How to install
-[![asciicast](https://asciinema.org/a/57ego6fvF03FRnqN4cRQoIrzp.svg)](https://asciinema.org/a/57ego6fvF03FRnqN4cRQoIrzp)
-
+[![asciicast](https://asciinema.org/a/TqnUurErQLE2X1RsJK514LmGC.svg)](https://asciinema.org/a/TqnUurErQLE2X1RsJK514LmGC)
 
 ## Game 'brain-even'
 [![asciicast](https://asciinema.org/a/FFMPagoWcaBtojKXPGFlJ7ruA.svg)](https://asciinema.org/a/FFMPagoWcaBtojKXPGFlJ7ruA)
