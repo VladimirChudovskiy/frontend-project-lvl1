@@ -1,5 +1,7 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4bdea98edd13a0f6b872/maintainability)](https://codeclimate.com/github/VladimirChudovskiy/frontend-project-lvl1/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4bdea98edd13a0f6b872/test_coverage)](https://codeclimate.com/github/VladimirChudovskiy/frontend-project-lvl1/test_coverage)
+
+![Test github actions](https://github.com/VladimirChudovskiy/frontend-project-lvl1/workflows/Test%20github%20actions/badge.svg)
 
 
 ## How to install

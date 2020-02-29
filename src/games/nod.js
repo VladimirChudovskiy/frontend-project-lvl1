@@ -1,36 +1,21 @@
-import readlineSync from 'readline-sync';
+import game from '../game.js';
+import { generateRandom, biggestDivisor } from '../utils.js';
 
-const minNumber = 1;
-const maxNumber = 100;
-const generateRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
+const nodGame = () => {
+  const rule = 'Find the greatest common divisor of given numbers.';
+  const roundGenerator = () => {
+    const number1 = generateRandom();
+    const number2 = generateRandom();
 
-const biggestDivisor = (num1, num2) => {
-  let divisor = Math.min(num1, num2);
+    const question = `${number1} ${number2}`;
+    const answer = `${biggestDivisor(number1, number2)}`;
+    return {
+      answer,
+      question,
+    };
+  };
 
-  while (num1 % divisor !== 0 || num2 % divisor !== 0) {
-    divisor -= 1;
-  }
-  return divisor;
-};
-
-const nodGame = (onWin, onLose, times) => {
-  console.log('Find the greatest common divisor of given numbers.');
-
-  for (let i = 0; i < times; i += 1) {
-    const number1 = generateRandom(minNumber, maxNumber);
-    const number2 = generateRandom(minNumber, maxNumber);
-    console.log(`Question: ${number1} ${number2}`);
-    const answer = parseInt(readlineSync.question('Your answer: '), 10);
-    const correctAnswer = biggestDivisor(number1, number2);
-    if (correctAnswer === answer) {
-      console.log('Correct!');
-    } else {
-      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}".!`);
-      onLose();
-      return;
-    }
-  }
-  onWin();
+  game(rule, roundGenerator);
 };
 
 export default nodGame;
