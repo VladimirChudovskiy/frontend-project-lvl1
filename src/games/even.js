@@ -1,5 +1,5 @@
-import game from '../game.js';
-import { generateRandom } from '../utils.js';
+import play from '../index.js';
+import generateRandom from '../utils.js';
 
 const isEven = (number) => number % 2 === 0;
 
@@ -14,5 +14,5 @@ const generateRound = () => {
 };
 
 export default () => {
-  game(rule, generateRound);
+  play(rule, generateRound);
 };

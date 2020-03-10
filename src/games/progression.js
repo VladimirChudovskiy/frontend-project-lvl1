@@ -1,12 +1,10 @@
-import game from '../game.js';
-import { generateRandom } from '../utils.js';
+import play from '../index.js';
+import generateRandom from '../utils.js';
 
 const getProgression = (start, length, incrementSize) => {
   const result = [];
-  let itemToAdd = start;
   for (let i = 0; i < length; i += 1) {
-    result.push(itemToAdd);
-    itemToAdd += incrementSize;
+    result.push(start + i * incrementSize);
   }
   return result;
 };
@@ -22,9 +20,9 @@ const generateRound = () => {
 
   const progression = getProgression(firstNumOfProgression, progressionLength, incrementSize);
   const secretIndex = generateRandom(0, progressionLength - 1);
-  const answer = `${progression[secretIndex]}`;
+  const answer = progression[secretIndex].toString();
   progression[secretIndex] = '..';
-  const question = `${progression.join(' ')}`;
+  const question = progression.join(' ');
   return {
     answer,
     question,
@@ -33,5 +31,5 @@ const generateRound = () => {
 
 
 export default () => {
-  game(rule, generateRound);
+  play(rule, generateRound);
 };

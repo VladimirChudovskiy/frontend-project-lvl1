@@ -1,17 +1,23 @@
-import game from '../game.js';
-import { generateRandom } from '../utils.js';
+import play from '../index.js';
+import generateRandom from '../utils.js';
+
+const operations = {
+  plus: '+',
+  minus: '-',
+  multiplication: '*',
+};
 
 const generateOperation = () => {
   const posibilitySignPlus = 40;
   const posibilitySignMinus = 40;
-  const num = Math.floor(Math.random() * 100);
+  const num = generateRandom();
   if (num <= posibilitySignPlus) {
-    return '+';
+    return operations.plus;
   }
   if (num > posibilitySignPlus && num < posibilitySignPlus + posibilitySignMinus) {
-    return '-';
+    return operations.minus;
   }
-  return '*';
+  return operations.multiplication;
 };
 
 const rule = 'What is the result of the expression?';
@@ -23,17 +29,17 @@ const generateRound = () => {
   const question = `${number1} ${operation} ${number2}`;
   let answer;
   switch (operation) {
-    case '-':
+    case operations.minus:
       answer = number1 - number2;
       break;
-    case '+':
+    case operations.plus:
       answer = number1 + number2;
       break;
-    case '*':
+    case operations.multiplication:
       answer = number1 * number2;
       break;
     default:
-      answer = 0;
+      answer = null;
   }
   answer += '';
   return {
@@ -43,5 +49,5 @@ const generateRound = () => {
 };
 
 export default () => {
-  game(rule, generateRound);
+  play(rule, generateRound);
 };

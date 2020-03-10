@@ -1,7 +1,7 @@
-import game from '../game.js';
-import { generateRandom } from '../utils.js';
+import play from '../index.js';
+import generateRandom from '../utils.js';
 
-const biggestDivisor = (num1, num2) => {
+const getBiggestDivisor = (num1, num2) => {
   let divisor = Math.min(num1, num2);
 
   while (num1 % divisor !== 0 || num2 % divisor !== 0) {
@@ -16,7 +16,7 @@ const generateRound = () => {
   const number2 = generateRandom();
 
   const question = `${number1} ${number2}`;
-  const answer = `${biggestDivisor(number1, number2)}`;
+  const answer = getBiggestDivisor(number1, number2).toString();
   return {
     answer,
     question,
@@ -24,5 +24,5 @@ const generateRound = () => {
 };
 
 export default () => {
-  game(rule, generateRound);
+  play(rule, generateRound);
 };

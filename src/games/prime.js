@@ -1,5 +1,5 @@
-import game from '../game.js';
-import { generateRandom } from '../utils.js';
+import play from '../index.js';
+import generateRandom from '../utils.js';
 
 const isPrime = (number) => {
   for (let i = 2; i < number; i += 1) {
@@ -21,5 +21,5 @@ const generateRound = () => {
 };
 
 export default () => {
-  game(rule, generateRound);
+  play(rule, generateRound);
 };
